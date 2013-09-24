@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WallpaperExample</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <array name="items">
+        <item>Wallpapers</item>
+        <item>Live Wallpapers</item>
+        <item>Ringtones</item>
+        <item>Songs</item>
+        <item>Lyrics</item>
+        <item>Videos</item>
+    </array>
+
+</resources>
