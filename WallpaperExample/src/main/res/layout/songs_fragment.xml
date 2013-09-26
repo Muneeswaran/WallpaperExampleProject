@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <GridView
-        android:id="@+id/photo_fragment_grid"
+    <ListView
+        android:id="@+id/songs_fragment_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:horizontalSpacing="5dp"
         android:numColumns="auto_fit"
         android:verticalSpacing="5dp"
-        tools:listitem="@layout/row_photo_fragment" />
+        tools:listitem="@layout/row_songs_fragment" />
 
     <TextView
         android:id="@+id/empty_list_view"

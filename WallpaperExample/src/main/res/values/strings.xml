@@ -14,4 +14,8 @@
         <item>Videos</item>
     </array>
 
+    <string name="wallpapaer_assets">wallpapers</string>
+    <string name="songs_assets">songs</string>
+    <string name="title_activity_photo">PhotoActivity</string>
+
 </resources>

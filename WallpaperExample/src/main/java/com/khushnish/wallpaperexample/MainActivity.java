@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.khushnish.wallpaperexample.fragment.PhotoFragment;
+import com.khushnish.wallpaperexample.fragment.SongsFragment;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -24,6 +25,8 @@ public class MainActivity extends ActionBarActivity {
     private ListView mDrawerList;
     private ActionBar actionBar;
     private ActionBarDrawerToggle mDrawerToggle;
+    private Fragment photoFragment;
+    private Fragment songsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +47,8 @@ public class MainActivity extends ActionBarActivity {
 
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 
-        // Set the adapter for the list view
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, drawdeItems));
-        // Set the list's click listener
 
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -72,11 +73,13 @@ public class MainActivity extends ActionBarActivity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
+        photoFragment = new PhotoFragment();
+        songsFragment = new SongsFragment();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action buttons
         switch(item.getItemId()) {
             case android.R.id.home:
                 if ( mDrawerLayout.isDrawerOpen(mDrawerList) ) {
@@ -94,6 +97,9 @@ public class MainActivity extends ActionBarActivity {
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            if ( mDrawerLayout.isDrawerOpen(mDrawerList) ) {
+                mDrawerLayout.closeDrawer(mDrawerList);
+            }
             selectItem(position);
         }
     }
@@ -101,14 +107,12 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
         mDrawerToggle.syncState();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        // Pass any configuration change to the drawer toggls
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
@@ -116,10 +120,13 @@ public class MainActivity extends ActionBarActivity {
         final FragmentManager fragmentManager = getSupportFragmentManager();
 
         if ( pos == 0 ) {
-            final Fragment photoFragment = new PhotoFragment();
             fragmentManager.beginTransaction().replace(R.id.content_frame, photoFragment).commit();
         } else if ( pos == 1 ) {
 
+        } else if ( pos == 2 ) {
+
+        } else if ( pos == 3 ) {
+            fragmentManager.beginTransaction().replace(R.id.content_frame, songsFragment).commit();
         }
     }
 }
