@@ -40,6 +40,7 @@ public class PhotoAdapter extends ArrayAdapter<String> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
+
         InputStream ims = null;
         try {
             ims = context.getAssets().open(context.getString(R.string.wallpapaer_assets)
