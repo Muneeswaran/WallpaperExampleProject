@@ -1,5 +1,7 @@
 package com.khushnish.wallpaperexample;
 
+import android.app.WallpaperManager;
+import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
@@ -50,7 +52,6 @@ public class PhotoActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.photo_share, menu);
         return true;
     }
@@ -61,8 +62,21 @@ public class PhotoActivity extends ActionBarActivity {
             case android.R.id.home:
                 finish();
                 return true;
+            case R.id.action_set_as_wallpaper:
+                setWallpaper();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void setWallpaper() {
+        final WallpaperManager wallpaperManager = WallpaperManager.getInstance(this);
+        try {
+            wallpaperManager.setStream(getAssets().open(getString(R.string.wallpapaer_assets) +
+                    File.separator + getIntent().getStringExtra("assestsPhotoName")));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

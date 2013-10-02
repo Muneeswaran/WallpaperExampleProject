@@ -93,7 +93,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    /* The click listner for ListView in the navigation drawer */
+    /* The click listener for ListView in the navigation drawer */
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -124,9 +124,9 @@ public class MainActivity extends ActionBarActivity {
         } else if ( pos == 1 ) {
 
         } else if ( pos == 2 ) {
-
-        } else if ( pos == 3 ) {
             fragmentManager.beginTransaction().replace(R.id.content_frame, songsFragment).commit();
+        } else if ( pos == 3 ) {
+            
         }
     }
 }

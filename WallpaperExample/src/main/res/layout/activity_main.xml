@@ -21,20 +21,20 @@
                 android:gravity="bottom"
                 android:orientation="vertical">
 
-                <include
-                    android:id="@+id/activity_main_ad"
-                    layout="@layout/adview" />
+                <!--<include-->
+                <!--android:id="@+id/activity_main_ad"-->
+                <!--layout="@layout/adview" />-->
 
             </LinearLayout>
 
         </RelativeLayout>
 
         <FrameLayout
-        android:id="@+id/content_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/activity_main_rel1"
-        android:layout_alignParentTop="true" />
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/activity_main_rel1"
+            android:layout_alignParentTop="true" />
     </RelativeLayout>
 
 
